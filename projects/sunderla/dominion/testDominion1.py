@@ -11,7 +11,7 @@ from collections import defaultdict
 import testUtility
 
 #Get player names
-player_names = ["Annie","*Ben","*Carla"]
+player_names = ["Annie","*Ben","*Carla", "*Bob", "*George"]
 
 nV = testUtility.NumberVictoryCards(player_names)
 nC = testUtility.NumberCurseCards(player_names) + 100
