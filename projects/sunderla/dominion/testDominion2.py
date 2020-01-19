@@ -25,7 +25,7 @@ supply_order = {0:['Curse','Copper'],2:['Estate','Cellar','Chapel','Moat'],
                 5:['Duchy','Market','Council Room','Festival','Laboratory','Library','Mine','Witch'],
                 6:['Gold','Adventurer'],8:['Province']}
 
-supply = testUtility.GetSupply(nV, nC, box, player_names)
+supply = testUtility.GetSupply(nV + 20, nC, box, player_names)
 
 #initialize the trash
 trash = []

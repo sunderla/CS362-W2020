@@ -80,7 +80,7 @@ def GetSupply(nV, nC, box, player_names):
     supply["Gold"] = [Dominion.Gold()] * 30
     supply["Estate"] = [Dominion.Estate()] * nV
     supply["Duchy"] = [Dominion.Duchy()] * nV
-    supply["Province"] = [Dominion.Province()] * (nV + 10)
+    supply["Province"] = [Dominion.Province()] * nV
     supply["Curse"] = [Dominion.Curse()] * nC
 
     return supply
