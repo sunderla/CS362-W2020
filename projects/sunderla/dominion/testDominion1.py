@@ -14,7 +14,7 @@ import testUtility
 player_names = ["Annie","*Ben","*Carla"]
 
 nV = testUtility.NumberVictoryCards(player_names)
-nC = testUtility.NumberCurseCards(player_names)
+nC = testUtility.NumberCurseCards(player_names) + 100
 
 #Define box
 box = testUtility.GetBoxes(nV)
