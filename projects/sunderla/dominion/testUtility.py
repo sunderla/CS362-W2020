@@ -1,4 +1,10 @@
+import random
+from collections import Counter, OrderedDict
+from operator import itemgetter
+import re
+import pandas
 import Dominion
+from collections import defaultdict
 
 
 def ConstructPlayers(player_names):
@@ -58,3 +64,23 @@ def GetBoxes(nV):
     box["Throne Room"]=[Dominion.Throne_Room()]*10
 
     return box
+
+
+def GetSupply(nV, nC, box, player_names):
+
+    # Pick 10 cards from box to be in the supply.
+    boxlist = [k for k in box]
+    random.shuffle(boxlist)
+    random10 = boxlist[:10]
+    supply = defaultdict(list, [(k, box[k]) for k in random10])
+
+    # The supply always has these cards
+    supply["Copper"] = [Dominion.Copper()] * (60 - len(player_names) * 7)
+    supply["Silver"] = [Dominion.Silver()] * 40
+    supply["Gold"] = [Dominion.Gold()] * 30
+    supply["Estate"] = [Dominion.Estate()] * nV
+    supply["Duchy"] = [Dominion.Duchy()] * nV
+    supply["Province"] = [Dominion.Province()] * (nV + 10)
+    supply["Curse"] = [Dominion.Curse()] * nC
+
+    return supply

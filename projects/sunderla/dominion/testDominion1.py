@@ -19,27 +19,14 @@ nC = testUtility.NumberCurseCards(player_names)
 #Define box
 box = testUtility.GetBoxes(nV)
 
-supply_order = {0:['Curse','Copper'],2:['Estate','Cellar','Chapel','Moat'],
-                3:['Silver','Chancellor','Village','Woodcutter','Workshop'],
-                4:['Gardens','Bureaucrat','Feast','Militia','Moneylender','Remodel','Smithy','Spy','Thief','Throne Room'],
-                5:['Duchy','Market','Council Room','Festival','Laboratory','Library','Mine','Witch'],
-                6:['Gold','Adventurer'],8:['Province']}
+supply_order = {0: ['Curse', 'Copper'], 2: ['Estate', 'Cellar', 'Chapel', 'Moat'],
+                3: ['Silver', 'Chancellor', 'Village', 'Woodcutter', 'Workshop'],
+                4: ['Gardens', 'Bureaucrat', 'Feast', 'Militia', 'Moneylender', 'Remodel', 'Smithy', 'Spy', 'Thief',
+                    'Throne Room'],
+                5: ['Duchy', 'Market', 'Council Room', 'Festival', 'Laboratory', 'Library', 'Mine', 'Witch'],
+                6: ['Gold', 'Adventurer'], 8: ['Province']}
 
-#Pick 10 cards from box to be in the supply.
-boxlist = [k for k in box]
-random.shuffle(boxlist)
-random10 = boxlist[:10]
-supply = defaultdict(list,[(k,box[k]) for k in random10])
-
-
-#The supply always has these cards
-supply["Copper"]=[Dominion.Copper()]*(60-len(player_names)*7)
-supply["Silver"]=[Dominion.Silver()]*40
-supply["Gold"]=[Dominion.Gold()]*30
-supply["Estate"]=[Dominion.Estate()]*nV
-supply["Duchy"]=[Dominion.Duchy()]*nV
-supply["Province"]=[Dominion.Province()]*(nV+10)
-supply["Curse"]=[Dominion.Curse()]*nC
+supply = testUtility.GetSupply(nV, nC, box, player_names)
 
 #initialize the trash
 trash = []
